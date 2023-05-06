@@ -31,21 +31,43 @@ void Enrutador::agregarNodo(string name_nodo, int peso)
 
 }
 
+bool Enrutador::verificarExistenciaNodo(string name_router)
+{
+    if (nodo.find(name_router) == nodo.end()) {
+        return false;
+    }
+    return true;
+}
+
 void Enrutador::eliminarNodo()
 {
     string name_destin;
     cout << "Ingrese el nodo a borrar" << endl;
     cin >> name_destin;
-    //verificar que exista en el diccionario
-    nodo.erase(name_destin);
+    if(verificarExistenciaNodo(name_destin)){
+        nodo.erase(name_destin);
+        cout << "Se ha borrado con exito\n";
+    }else cout << "El nodo ingresado no existe.\n";
+
+}
+
+void Enrutador::eliminarNodo(string name)
+{
+    nodo.erase(name);
 }
 
 void Enrutador::mostrarNodos()
 {
-    map<string, int>::iterator it;
-    for(it=nodo.begin(); it!=nodo.end(); ++it){
-      cout << it->first << " => " << it->second << '\n';
+
+    cout << "\tNodo\tPeso\n";
+    for(it=nodo.begin(); it!=nodo.end(); ++it){      
+      cout << "\t" << it->first << " \t " << it->second << endl;
     }
+}
+
+void Enrutador::cambiarPesoNodo(string destino, int w)
+{
+    nodo[destino] = w;
 }
 
 

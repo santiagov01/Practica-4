@@ -11,18 +11,28 @@ class Red
 {
 private:
     //{A : {A:0,B:4,C:10,D:4},B : {A:4,B:0,D:1}} prototipo para la red
-    map<string,Enrutador> Enrutadores;//conexiones directas unicamente
+    map<string,Enrutador> Enrutadores_red;//conexiones directas unicamente
+    map<string,Enrutador>::iterator itr_red;
     vector<string> nombres_enrutadores;
 
 public:
     Red();
-    void agregarEnrutador(string);
-    void agregarNodo_a_Enrutador(string);//accede al enrutador de la red y agrega conexion
+    void agregarEnrutador();
+    void agregarNodo_a_Enrutador();//accede al enrutador de la red y agrega conexion
+    void agregarNodo_a_Enrutador(string nombre);
     bool VerificarExistencia(string);
-    void mostrarEnrutadores(string);//se podría sobrecargar
-    void mostrarEnrutadores();
-    void eliminar_nodoEn();
+    void mostrarEnrutadores();//se podría sobrecargar
+    void mostrarEnrutadores(string name_router);
+    void eliminar_nodoEn();//elimina solo un elemento
+    void eliminar_Router();//elimina todo el router
+    void cambiarPeso();
+
+    bool verificarVector(vector<string>,string);
     void calcularCaminos();
+    void calc_nodo_menorw(map<string,vector<string>>, vector<string>, string *);
+    void calcularCaminos2();
+
+
 
 
     ~Red();

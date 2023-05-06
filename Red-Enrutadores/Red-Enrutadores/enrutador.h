@@ -11,6 +11,7 @@ private:
     //Conexiones directas. La red entra acá para establecer
     //las conexiones de los nodos
     map<string,int> nodo; //{A : 0, B :5, C: 10}
+    map<string, int>::iterator it;
 
     //Camino más cercano
     //map<string,int> conections;
@@ -18,8 +19,11 @@ private:
 public:
     Enrutador();
     void agregarNodo(string,int);
+    bool verificarExistenciaNodo(string name_router);
     void eliminarNodo();
+    void eliminarNodo(string name);
     void mostrarNodos();
+    void cambiarPesoNodo(string,int);
 
     map<string, int> getNodo() const;
 
