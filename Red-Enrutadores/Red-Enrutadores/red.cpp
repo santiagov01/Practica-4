@@ -457,7 +457,6 @@ void Red::calcularCaminos3(int op)
 
         //calcular el más cercano.
         calc_nearest(etiqueta,por_visitar,nodo_actual);//calcula el más cercano
-        cout << nodo_actual;
         temp = Enrutadores_red[nodo_actual].getNodo();
         for(itr_temp = temp.begin();itr_temp != temp.end(); ++itr_temp){
             //itera todos los nodos
@@ -481,18 +480,14 @@ void Red::calcularCaminos3(int op)
     }else{
         cout << "Nodos a recorrer:\n";
         recorrido = etiqueta[nodo_destino][1];
-        cout << recorrido;
+        cout << nodo_destino << "==>" << recorrido;
         while(recorrido != nodo_inicio){
             recorrido = etiqueta[recorrido][1];
             cout << "==>"<< recorrido;
         }
         cout << endl;
     }
-    map<string, vector<string>>::iterator itr_etiquetas;
-    for(itr_etiquetas = etiqueta.begin(); (itr_etiquetas != etiqueta.end()); ++itr_etiquetas){
-      cout << itr_etiquetas->first << " => " << (itr_etiquetas->second)[0] << " => " <<(itr_etiquetas->second)[1] << '\n';
 
-    }
 }
 
 void Red::calc_nearest(map<string, vector<string>> etiquetas,vector<string> por_visitar, string& actual)
