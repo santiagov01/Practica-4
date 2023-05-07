@@ -18,8 +18,10 @@ private:
 public:
     Red();
     void agregarEnrutador();
+    void agregarEnrutador(string);
     void agregarNodo_a_Enrutador();//accede al enrutador de la red y agrega conexion
     void agregarNodo_a_Enrutador(string nombre);
+    void agregarNodo_a_Enrutador(string origen, string destino, int peso);
     bool VerificarExistencia(string);
     void mostrarEnrutadores();//se podría sobrecargar
     void mostrarEnrutadores(string name_router);
@@ -27,10 +29,12 @@ public:
     void eliminar_Router();//elimina todo el router
     void cambiarPeso();
 
-    bool verificarVector(vector<string>,string);
+
     void calcularCaminos();
-    void calc_nodo_menorw(map<string,vector<string>>, vector<string>, string *);
+    void calc_nodo_menorw(map<string,vector<string>>, vector<string>, string &);
     void calcularCaminos2();
+    void calcularCaminos3(int op);
+    void calc_nearest(map<string, vector<string>>, vector<string> visitados, string &actual);
 
 
 
